@@ -1,0 +1,134 @@
+Spring Boot is a framework
+it is the combination of Spring framework and Embedded Server
+it provide an easier and faster way to set up, configure and run both simple and web based application
+No requirement of xml file
+it offers cli tools developing and testing the spring boot application
+
+
+disadvantage
+it sometimes keep the dependecies which may the project wont require making the project heavy
+
+whenever we make a web application then server search for index.html as the starting page
+so its necessary to keep the index.html as you entry page or home page
+
+
+suppose the post 8080 is busy
+then you can change the post to run the project
+to do that u need to edit the application.properties
+server.port=9191
+
+pom.xml
+Whenever we make the maven project
+we give groupid, artifactid
+groupid should be unique and also the artifactid
+
+maven is a build tool(the process from making the project till deploying the project is provided by maven)
+maven helps to manage the dependecies automatically instead of doing it manually
+
+what is dependecies?
+that is those lib on which your project is dependent 
+
+how maven manages the depedencies?
+what maven do it provide you the pom.xml file what it do is it pick up those necessary lib and put in the project for use
+the time when pom.xml brings the dependecies it store it in out local system
+
+so whenevr pom.xml use any dependecies it store in the local system(user/.m2/repository)
+and if in future you uses the same dependencies then it will look in the local first and if not presnt then look on internet
+
+how to add dependecies in the project?
+go and search the dependencies on maven repository -> select the version -> add the dependency code to the project
+in the dependiencies section of the pom.cml
+
+scope of dependency
+scope is used to define a paricular dependency scope which places this dependecy will work
+A dependency not having scope means by default its scope is compile(means that will available everywhere).
+https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html
+
+
+Suppose there are two class student and teacher.
+teacher wansts to access the student then it need to make the object of the student.
+As we are using spring boot we have some kind of power means initially we were making the object but now the spring will make the object of any class we no need to make it.
+That is called inversion of control
+so basically IOC is a kind of box which makes the store of object of all the classes present in the project.
+so whenever we need any object then we ask from IOC to to provide it.
+
+The objects inside IOC is called bean.
+
+Now from where IOC bring the object?
+IOC scan all the classes present in the project and stores it object, whenever needed spring provide it to you.
+it wont scan all the classes, it scan those class which we tell
+to do this we need to provide one annotation just aboe a class. (@Component)
+if this annotation is writen on function it provide the defination of function
+
+
+what is the meaning of application context?
+The IOC container we have are of two type: bean factory and application context
+mean the process to achieve the IOC is called application context
+
+What is dependency injection?
+using @Autowired we can inject the dependency
+if a particular class dependend on another class then using @Autowired we can inject that independent class inside the dependent class.
+
+@GetMapping is used to asscept the request from the frontend and what ever that particular function have it return it as reponse
+
+
+What is reat Api?
+Representational state transfer -> mean there are some guidelines and rules to follow when using rest api
+it uses http protocol
+http protocol have some different methods
+1. GET -> to get the data from the server
+2. POST -> send the data to server
+3. PUT -> change the data on server
+4. DELETE -> to delete the data from the server
+
+
+https://catfact.ninja/fact
+this api provide some fact on cat on every hit
+
+https://dog.ceo/api/breeds/image/random
+this provides the dog image link
+
+
+hoppscotch.io is an online testing platform for api
+
+
+@RestController is basically used to create web services
+this is used on class(so called as class level annotation)
+this gives the power to class if there any request from clinet it can handel it
+
+Restcontroller used above the class, that class will have all the function public, bcz so it get accessable to client.
+
+@RequestMapping is a class level anonotation
+
+
+What is hibernate?
+This is basically uses to connect you application with database, no need to write the sql queries and u focus on only java program.
+
+Initially we used to use JDBC to connect with java datatbase.
+
+why hibernate?
+using jdbc there were many works that we had to do.(like loading of driver, connecting the connection, creation of statement or prepared statement, execution of statement, use of resultset to retrieve the data from the table).
+The hibernate just bypass you by doing this.
+
+ORM(Object Realtional Mapping)
+the name of the table and the class is same (student)
+what ORM do it takes the object and store the data to the table.(this will get handel by hibernate, so hibernate is a tool to perform ORM)
+So hibernate takes the object and store the data to table and retrieve the tabel row to return the data in object formate
+
+<property name="hbm2ddl.auto">update</property>
+this create the table but create it once, that is the differenece between create and update
+
+When you retrieve the row based on a primary key and the data of the same key is geeting retrieve two times
+then it wont run the sql command 2 times instead it created the cache with the help of which it brings the row for already present in the cache.
+
+this cache is provide by the hibernate, and this is first level cache
+using the same session bydefault we get the first level of cache
+
+means differnet session will run the same query again bcz the cache get change
+
+SessionFactory object holds the second level of cache. the sored data of the second level of cache will be available to entire application.
+but we need to enable it explicitely
+to do this we need to import one dependency -> ehcache, hibernate ehcache relocation
+
+
+
