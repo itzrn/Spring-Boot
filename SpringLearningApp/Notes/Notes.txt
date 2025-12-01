@@ -1,0 +1,51 @@
+We can also change the version of java used, using pom.xml file
+
+maven uses pom.xml to manage everything about this project
+maven used for different things like dependency management, plugins management or whole java project management through pom.xml
+
+Here we choose java 21 in the spring initializer, in intellij you can only choose the java version 21 or above.
+
+in starting if we run the project(before writing the "/" api) then it will show one error page on browser(localhost:8080)
+and if you haven't made any mapping for "/error" then it shows the default page which is getting seen on browser.
+This error on browser doesn't mean that your project have error, instead it mean there is no api created yet to show anything on browser
+These all things are jsy bcz the dependency we added "spring web" using spring boot initializer
+
+
+application.properties is uses to configure our spring boot project, with respect to web database
+
+
+What is Beans?
+Beans are the java object which is managed by spring container.
+@Component -> is used to create the bean
+
+Spring framework scan the whole project and where ever it get the @Component it makes the bean of that java class and store it.
+This scanning is called as component scanning.
+After getting java class as bean there is no need of making the object of any class explicitly.
+
+
+After using @Component on any class
+To use that bean we can do either of it
+- using Dependency Injection(called as constructor dependency injection) -> using Constructor of tha class which is dependent on that bean
+    Here benefit is to have these in your code direct visible and making it final
+    so this way is more better
+- Field Injection -> using @Autowired
+    here benefit is to have private
+Doing above things we can do loose coupling
+
+
+Using application.properties we can make conditionally bean
+just one line change the payment service gets change
+
+There are many type of Conditional annotation based on which u can make the beans
+
+IOC Container/Application context/Spring Container
+    To look on multiple class and there configurations and make there storage of beans at a place, so that they can be injected whenever they are required
+
+IOC Container checks which all classes?
+    Wherever @Component is used
+
+
+As soon we add autoconfiguration the spring starts to work as spring boot
+
+
+

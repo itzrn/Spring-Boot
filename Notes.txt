@@ -130,5 +130,8 @@ SessionFactory object holds the second level of cache. the sored data of the sec
 but we need to enable it explicitely
 to do this we need to import one dependency -> ehcache, hibernate ehcache relocation
 
-
+In Spring Boot, we don’t write servlets directly.
+The DispatcherServlet provided by Spring acts as the main servlet, handling all incoming HTTP requests.
+It maps each request to the appropriate controller method and sends back the response.
+So, when I write endpoints in a controller, Spring internally uses servlets to manage the request–response cycle.
 
