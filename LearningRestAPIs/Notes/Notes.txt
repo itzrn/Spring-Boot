@@ -1,0 +1,28 @@
+Spring Boot follows Three layer architecture corresponding to MVC
+
+Packages(layers)
+    Controller ->
+    Service -> Used for business logics
+    Entity(called as Data Access layer or persistence layer) ->
+    Repository ->
+
+The request will go to controller which will create model, to create model it will use service which internally uses entity and repository
+and at the end the generated model will send back to controller. Then controller make it as view or json in response
+
+
+The Three layer architecture ->
+1st layer -> Presentation layer -> usually called as controller
+2nd layer -> Service layer -> Use to write the business logics
+3rd layer -> Persistence layer(or Data Access Layer)
+
+The data transfer happen between Presentation layer and Service Layer using DTO(Data Transfer Object)
+The data transfer happens between Service Layer and persistence layer using Entity
+Persistence layer interact with Database.
+
+In the same manner the response from Persistence layer to Service layer is send in the form of entity and response from
+service layer to presentation layer in the form of DTO. THe response to controller is converted into json and send to client.
+
+In response from controller json is been returned
+The object(DTO) is converted into json by HTTPMessageConverter
+
+POJO(or DTO) -> Plain Old Java Object
