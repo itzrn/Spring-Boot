@@ -24,8 +24,8 @@ public class SpringLearningAppApplication implements CommandLineRunner {
 	}
 
 	@Override
-	public void run(String... args) throws Exception { // this is the run method which get runs when all the things got end
-		// runs at the end
+	public void run(String... args) throws Exception { // this is the run method which get runs when the whole spring project
+		// get setup, application context get created the scanning is done then just after this function runs.
 
 		String payment = paymentService.pay();
 		System.out.println("Payment done : "+payment);

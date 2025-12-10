@@ -1,0 +1,33 @@
+What is Spring Boot Data JPA?
+    Jakarta Persistence API (JPA) is a standard specification in Java for object-relational mapping
+    (ORM) — meaning it defines how Java objects (entities) are mapped to database tables and how you
+    interact with a relational database using objects instead of SQL.
+
+    initially it was java Persistence API, then oracle made it open source with the name of
+    jakarta persistence api
+
+In production we use either validate or none in -> spring.jpa.hibernate.ddl-auto=
+
+JPA is something which have it own set of rules to create any object which can map to table.
+
+spring data jpa provides the boiler plate which minimize the writing of query
+
+Hibernate is something which maps the data to the object
+object is coming from JPA and data row is coming form JDBC
+
+In JPA we can write some custom query which called as JPQL
+Hibernate also handle how the custom query is need to be converted to query which is understandable by JDBC.
+
+
+Entity Manager is a thing which work internally the works related to hibernate
+In Hibernate Entity lifecycle if the entity is in persistent state then the entity can only be deleted when delete() is called
+or the entity is detached
+
+Persistent Context is the first level of caching
+
+PatientRepository is an interface which get implements automatically by the JPA framework
+
+@Transactional -> is used so that there wont be any duplicate call of the query which is already called once
+
+JUNIT is something which helps to test the service without making any apis
+Test method should always be of void return type
