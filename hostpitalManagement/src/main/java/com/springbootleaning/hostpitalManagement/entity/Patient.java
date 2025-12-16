@@ -38,7 +38,7 @@ public class Patient {
     )
     private String name;
 
-    @ToString.Exclude
+//    @ToString.Exclude
     private LocalDate dob;
 
     @Column( // if making one column unique
