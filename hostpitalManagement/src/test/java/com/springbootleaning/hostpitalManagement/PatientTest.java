@@ -22,6 +22,7 @@ public class PatientTest {
     @Test
     public void testPatientRepository() {
 
+
         List<Patient> patientList = patientRepository.findAll();
         System.out.println(patientList);
 
@@ -77,6 +78,10 @@ public class PatientTest {
         for(Patient p1:listp){
             System.out.println(p1 + " -> ab ye hai khud ki query se ===> findAllPatient1");
         }
+
+
+        patientList = patientRepository.findAllPatientWithAppointment();
+        System.out.println(patientList);
 
     }
 }
