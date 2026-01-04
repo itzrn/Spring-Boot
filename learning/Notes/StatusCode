@@ -1,0 +1,40 @@
+- HTTP status code are grouped into five categories based on their first digit
+
+- 1XX -> informational
+    These status code indicate that the request was received and understood, and the server is
+    continuing to process it. These are typically used for informational purposes and
+    rarely seen in practice.
+
+- 2XX -> Successful
+    These status codes indicate that the request was successfully received,
+    understood, and processed by the server
+
+    200 ok
+    201 Created
+    204 No Content
+
+- 3XX -> redirection
+    These status code indicate that further action is needed to complete the request.
+    They are used when the client needs to take additional steps to access the requested resource.
+
+    301 Moved Permanently
+    302 Found
+    304 Not Modified
+
+- 4XX -> Client Error
+    These status code indicate that there was an error on the client's part, such as
+    a malformed request or authentication issues.
+
+    400 Bad Request
+    401 unauthorized
+    403 Forbidden
+
+- 5XX -> Server error
+    These status codes indicate that there was an error on the server's part
+    while trying to fulfill the request
+
+    500 Internal Server Error
+    502 Bad Gateway
+    503 Service Unavailable
+
+

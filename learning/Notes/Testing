@@ -1,0 +1,5 @@
+There are two types of Testing
+    Integration Testing
+    Unit Testing
+
+For test in java we have a framework called JUnit -> java Unit

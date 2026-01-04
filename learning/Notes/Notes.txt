@@ -1,0 +1,196 @@
+- The core spring framework already reduces boilerplate code and provides a lot of helpful features
+  for java applications.
+
+- However, spring boot takes this convenience to the next level by focusing specifically
+  on reducing the effort required to set up and configure a spring application.
+
+- Spring boot provides autoconfiguration and make stand-alone applications
+   stand-alone means there is no need to provide tomcat server bcz inside spring boot
+   tomcat embedded server is present
+
+- We need to manually set up the spring application context in the main method
+
+- after spring boot, we use the @SpringBootApplication annotation on the main class. This single annotation replaces
+  the need for setting up a manual spring application context.
+-  We no longer need to explicitly create an application context using Spring Boot handles that behind the scenes.
+
+- we use SpringApplication.run() to start the application, and Spring Boot takes care of configuring the embedded web
+  server and other necessary components.
+
+- The @SpringBootApplication annotation alone brings in a lo pre-configured features, including
+  automatic components scanning and embedded server configuration,which would have required more steps in a traditional Spring setup.
+
+- What is application context?
+    suppose you have created a bean, and the time you need that bean you go to application context and ask for the particular bean
+    application context just provides you that.
+
+- jar -> one command, and it will run the application
+- war -> you need to deploy it first to run the application
+
+- Context path -> [https://localhost:8080/project_name/] then we give the particularapi call
+
+- maven come in the use of build
+- it simplify build and manages the dependencies
+
+- A build live cycle is made up of phases
+    validate, compile, test, package, verify, install, deploy
+
+- either you have mvn installed in your system or you can use .\mvnw validate and to run other mvn command
+
+- POM -> Project Object model
+
+- Car car = new Car(); here we creating object by our own
+                        But spring provides the functionality which help to externalize the object creation using spring
+                        so we inverted the control, hence Inversion of Control (IOC)
+
+- Initially we were creating the object but now with the help of IOC container there is no need of creating object anymore]
+
+- IOC container is in spring boot
+- Application context is a way to achieve IOC container
+
+- The class having the @Component annotation those class will have there object present in IOC container
+
+- Annotations can be used on class methods interface field, which provide there's information
+
+- @SpringBootApplication
+    do three works
+        - @Configuration(contains @Bean, applying on class we can create bean inside the class on using function) -> this tells that a particular class will provide some configuration
+        - @EnableAutoConfiguration
+        - @ComponentScan
+
+- @RestController
+    This also make beans uses @Component
+    it is -> @Component + Something
+
+- When a class A uses another class B object through bean then class A depend on class B
+  For class A to use class B, class B is need to be injected in class A using dependency injection
+
+  Dependency injection can be achieved by two ways
+    - using constructor
+    - using @Autowired -> using this then we also say field injection
+
+- using @Bean also we can make bean, but bean annotation is applied on function rather than class
+
+- Rest -> Representational state transfer
+
+- Http verb -> GET POST PUT DELETE
+
+- In RestController
+    The functions we make is always public so that they can be accessed and invoked by the spring
+    framework or external HTTP requests.
+
+- @RequestBody is like saying -> hey spring, please take the data from the request and turn it
+                                 into a java object that I can use in the code
+
+- ORM -> Object Relational Mapping
+        ORM is a technique used to map java objects to database tables
+        It allows developers to work with database using OOS concepts, making it easier to interact with relational database
+
+        Consider a java class User and a database table users.
+        ORM frameworks like hibernate can map the fields in the User class to columns in the users table,
+        making it easier to insert, update, retrieve, and delete records.
+
+- JPA -> Java Persistence API
+        Persistence -> to store data permanently
+        A way to achieve ORM, includes interfaces and annotations that you use in java classes,
+        requires a persistence provider(ORM tools) for implementation.
+
+        To use JPA, you need a persistence provider. A persistence provider is a specific implementation of the JPA specification.
+        Examples pf JPA persistence providers include Hibernate, EclipseLink, and OpenJPA.
+        These providers implement the JPA interfaces and provide the underlying functionality to interact with databases.
+
+        so actually we use Hibernate, EclipseLink, or OpenJPA to interact with Database
+
+- Spring Data JPA
+    It is built on top of the JPA specification, but it not a JPA implementation itself. Instead,
+    it simplifies working with JPA by providing higher-level abstractions and utilities. However, to use
+    Spring implementation, such as Hibernate, EclipseLink, and OpenJPA provider, to handle the actual database interactions.
+
+- JPA is primarily designed for working with relational databases, where data is stored in tables with a predefined schema.
+  MongoDB, on the other hand, is NoSQL database that uses a different data model, typically based on collections of documents, which are schema-less
+  or have flexible schemas. This fundamental difference in data models and storage structures is why JPA is not used with MongoDB.
+
+  In the cae of MongoDB, you don't have a traditional JPA persistence provider. MongoDB is a NoSQL database, and Spring Data MongoDB
+  serves as the "persistence provider" for MongoDB.
+  It provides the necessary abstractions and implementations to work with MongoDB in a Spring Application.
+
+  Query Method DSL and Criteria API are teo different ways to interact with databse when using spring data jpa for
+  relational databases and spring data MongoDB for MongoDB databases.
+  Spring data jpa is a part of the spring framework that simplifies data access in java applications, while
+  spring data Mongodb provides similar functionality for MongoDB.
+
+  Query Method DSL is a simple and convenient way to create queries based on method naming conventions, while the
+  Criteria API offers a more dynamic and programmatic approaches for building complex and custom queries.
+
+
+- Response Entity
+    The ResponseEntity class is part of the spring Framework and is commonly used
+    in spring boot applications to customize the HTTP response.
+
+    It provides methods for setting the response status, headers and body. You
+    can use it to return different types of data in your controller methods,
+    such as JSON, XML, or even HTML
+
+- Lombok
+    It is a popular lib in the java ecosystem, often used in Spring Boot Applications.
+    Lombok generates bytecode for methods like getters, setters etc as specified
+    by the annotations used in your code. This generated code is added to the compiled
+    class files(.class files).
+
+
+
+- Spring Security
+    Spring Security is a powerful and highly customizable security framework that is often used in Spring boot applications
+    to handle authentication and authorization.
+    authentication means that is it possible for you to access the api
+    authorization means that what are all the things you can perform after having the access for a particular api
+
+    on adding spring-boot-starter-security all the end points will get secure
+
+    By-default, Spring Security uses HTTP Basic Authentication.
+    By default, all endpoints will be secured. Spring Security will generate a default user with
+    a random password that is printed in the console logs on startup.
+
+    @EnableWebSecurity
+    This annotation signals spring to enable its web security supports.
+    This is what makes your application secured.
+    It is used in conjunction with @Configuration
+
+- WebSecurityConfigurerAdapter is a utility class in the spring security framework that provides default configuration and allow
+  customization of certain features. By extending it, you can configure and customize spring security for your application
+  needs.
+
+
+- What is class Path?
+    Class path is just a list of jars and directories which are used by JVM.
+    like for .property file, resource folder, static folder and all other, there location is included in class Path so spring boot can locate those files and folder
+    application.property have key value pairs
+    another way is yaml file -> this have extension of .yml (full form -> yaml ain't markup language)
+
+    in .yml its written like
+    spring:
+        data:
+            mongodb:
+                uri:mongodb+srv://journalscluster:100702@cluster0.bgumhps.mongodb.net/journaldb?retryWrites=true&w=majority&appName=Cluster0
+                database:journaldb
+                auto-index-creation:true
+
+    server:
+        port:8080
+        servlet:
+            context-path:/journal
+
+    if both .property and .yml files is present then priority is given to .property file in case same things are written in both the files
+
+    on running mvn package or
+    .\mvnw package
+            the .jar will get create in target folder and on running .jar file the whole spring boot application will start to run
+
+            we can provide .property file things using commond line
+            java -jar .\jar_file_name.jar --server.port=9090
+
+            so priority -> command line arguments > .property > .yml  if the things are different
+
+            in intellij there is place to give command line arguments
+            edit configuration -> program argument field
+

@@ -1,0 +1,26 @@
+- show dbs
+
+- use database_name -> if not present then automatically data base will get create else it will use already available db
+
+- show collections -> use to see the collections that a db have
+
+- db.students.insertOne({"name":"Aryan", "age":20})
+  db -> represent the current database
+  if student collection not present then it will create by its own
+  insertOne means -> to insert one document
+  in mysql we use to add row same way here we will add json
+
+- db.students.find()
+    it will show the document
+
+- db.student.find().pretty() -> this will arrange the document in proper oder
+
+- to each json we say documents
+
+- ObjectId() -> is something which identifies a particular document
+
+- db.students.find({name:"Aryan"})
+
+- db.students.deleteOne({name:"Aryan"})
+
+-
