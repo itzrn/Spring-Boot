@@ -194,3 +194,21 @@
             in intellij there is place to give command line arguments
             edit configuration -> program argument field
 
+- @Value("${weather.api.key}")
+  public String apikey;
+
+- @PostConstruct
+    This is applied on methods
+    means the time bean of that particular class will get create, immediately
+    that function will get invoke
+
+    so suppose that there is an api key which is kept in database
+    then using this type of function you can first call that query to fetch
+    the api key from database and use it in the code where it is necessary
+
+    There is something would be coming into the mind to call that api latency will get create.
+    one call to database will get increase
+    so to overcome that we will use application cache
+
+    Application caching is a way to put frequently used and frequently changing configuration to put into the databse
+    and make that database load inside your spring boot application

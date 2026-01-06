@@ -1,5 +1,6 @@
 package com.spring.learning.controller;
 
+import com.spring.learning.cache.AppCache;
 import com.spring.learning.entity.User;
 import com.spring.learning.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class AdminController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private AppCache appCache;
+
     @GetMapping("/all-users")
     public ResponseEntity<List<User>> getAllUsers(){
         List<User> all = userService.getAll();
@@ -30,5 +34,11 @@ public class AdminController {
     @PostMapping("/create-new-admin-user")
     public void createNewAdminUser(@RequestBody User user){
         userService.saveNewAdmin(user);
+    }
+
+
+    @GetMapping("clear-app-cache")
+    public void clearAppCache(){ // this will initialize the appCache if there is any update in the appCache
+        appCache.init();
     }
 }
