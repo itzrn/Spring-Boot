@@ -1,0 +1,68 @@
+Logging is an essential aspect of application development that allows developers to monitor
+    and troubleshoot their applications.
+
+SpringBoot supports various logging frameworks, such as Logback, Log4j2
+     and Java Util Logging (JUL)
+
+Logging levels help in categorizing log statements based on their severity.
+    The Common logging levels are
+        TRACE
+        DEBUG
+        INFO
+        WARN
+        ERROR
+
+Spring Boot Provides annotations like @Slfrj & @Log4j2
+that you can ue to automatically inject logger instances into your classes
+
+
+logging.level.com.spring.learning=DEBUG
+now we can use log.debug, writing here it will allow debug and more severe than debug
+
+if we want to change for all the level
+#logging.level.root=ERROR
+
+we can also completely OFF
+logging.level.root=OFF
+
+like this way we can off for particular package or class
+logging.level.com.spring.learning.service.UserService=OFF
+
+
+
+Written in resources
+<configuration>
+
+    <appender name = "myConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{yy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg %n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name = "myFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>
+            journalApp.log
+        </file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>journalApp-%d{yy-MM-dd_HH-mm}.%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                %d{yy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg %n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="myConsoleAppender" />
+        <appender-ref ref="myFileAppender" />
+    </root>
+
+
+</configuration>
+
+in file you can put where you want to save the log 

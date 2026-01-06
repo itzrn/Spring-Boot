@@ -3,3 +3,21 @@ There are two types of Testing
     Unit Testing
 
 For test in java we have a framework called JUnit -> java Unit
+
+
+To create Jar -> .\mvnw clean package -DskipTests
+    when test are written else it will start to run all the test or you can provide all passed tests
+
+    if no test written then
+    .\mvnw clean package
+
+
+This is how we run the jar
+    java -jar .\learning-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev --spring.data.mongodb.uri=mongodb+srv://journalscluster:<>@cluster0.bgumhps.mongodb.net/journaldb?retryWrites=true"&"w=majority"&"tls=true
+
+    with providing some external properties
+
+    java -jar .\learning-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
+    This allows to run the application-dev.properties file
+
+    after .jar we are providing arguments

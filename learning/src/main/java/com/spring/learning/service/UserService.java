@@ -3,6 +3,8 @@ package com.spring.learning.service;
 import com.spring.learning.entity.User;
 import com.spring.learning.repository.UserRepository;
 import org.bson.types.ObjectId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -12,12 +14,17 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+// Slf4j is an abstraction of Logback
+
 @Service
 public class UserService {
     private static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Autowired
     private UserRepository userRepository;
+
+    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
+    // instead of this we can use Slf4j, bcz we need to add logger every time
 
     public void saveEntry(User user){
         userRepository.save(user);

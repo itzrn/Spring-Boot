@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Optional;
 
 
+
+
 @Slf4j
 @Component
 public class JournalEntryService {
@@ -24,6 +26,8 @@ public class JournalEntryService {
 
     @Autowired
     private UserService userService;
+
+
 
     // @Transactional should be used here, but this is not the atlas server so giving error
 //    @Transactional // this allows to completely run the function properly if something happen in between then it will undo the things happened before the point of error
